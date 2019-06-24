@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include partials/head %>
+
+    <meta charset="utf-8">
+    <title>Details</title>
+    <script type="text/javascript">
+       window.onbeforeunload = function (e) {
+    var e = e || window.event;
+       if (e) {
+         e.returnValue = 'Se perderan todos los datos que no hayas guardado';
+       }
+}
+
+</script>
+  </head>
+  <body >
+    <section>
+
+      <div class=" mx-2 my-2  shadow-lg text-center border border-light bg-light rounded-lg mb-5">
+      <div class="mx-5 my-5">
+        <p><h1>Order number	</h1>
+        <h3>2019510235350</h3>
+      </div>
+    </div>
+  </section>
+
+    <div class="jumbotron ml-5 mr-5">
+      <table class="table">
+        <thead>
+          <tr >
+            <th scope="row" class="align-middle"> Adress</th>
+          </tr>
+          <tr>
+            <th scope="row"> Helper</th>
+          </tr>
+          <tr>
+            <th scope="row"> Service Type</th>
+          </tr>
+          <tr>
+            <th scope="row"> Status</th>
+          </tr>
+          <tr>
+            <th scope="row"> Costo total</th>
+          </tr>
+          <tr>
+            <th scope="row"> Adicionales</th>
+          </tr>
+          <tr>
+            <th scope="row"> Fecha y hora</th>
+          </tr>
+          <tr>
+            <th scope="row"> </th>
+          </tr>
+          <tr>
+            <th scope="row"> <a href = "https://www.google.com" >Correo o numero para pago </a></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="fixed-bottom mb-5 text-center">
+      <button type="button" name="button" class="btn-outline-success btn-lg mr-5">Save Changes</button>
+      <button type="button" name="button" class="btn-outline-danger btn-lg ml-5" onClick="Javascript:alerta();">Discard Changes</button>
+
+    </div>
+    <script type="text/javascript">
+    function alerta(){
+      window.close()
+    }
+</script>
+
+  </body>
+</html>

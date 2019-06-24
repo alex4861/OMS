@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="u" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <% include partials/head %>
+
+    <title>Admin Access Portal</title>
+  </head>
+  <body class="login">
+
+    <div class="container">
+      <div class="col-sm-6 mx-auto">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h1 class="text-center">
+              <span class="fa fa-users-cog"></span> Order Management Service
+            </h1>
+
+
+            <% if(message.length > 0) { %>
+              <div class="alert alert-danger">
+                <% message %>
+
+              </div>
+
+            <% } %>
+
+
+            <form action="/login" method="post">
+              <div class="form-group">
+                <label for="text">Username</label>
+                <input type="text" name="email" class="form-control">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control">
+              </div>
+              <div class="text-center mt-5">
+                <input type="submit" class="btn btn-dark btn-lg">
+
+
+              </div>
+            </form>
+            <hr>
+            <div class="text-center">
+              <p><a href="/">Go back</a>.</p>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

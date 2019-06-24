@@ -1,0 +1,102 @@
+  <!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>Index</title>
+      <% include partials/head %>
+      <% include partials/nav %>
+
+    </head>
+    <body>
+
+      <section>
+        <div class="card mx-5 my-5 bg-light ">
+          <form class="form-inline d-flex " id="datos">
+              <div class="justify-content-start input-group mb-3 5 ml-5 mt-5 ">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Date</label>
+                </div>
+                <input type="text" id="datepicker" disabled>
+
+              </div>
+              <div class=" input-group mb-3 5 ml-5 mt-5 ">
+                <a class="btn btn-outline-info justify-content-end" onclick="Javascript:addTable()"> buscar </a>
+              </div>
+            </form>
+          </div>
+
+
+      </section>
+      <div class="jumbotron ml-5 mr-5">
+        <table class="table table-striped">
+  <thead class="table-info table-hover">
+    <tr>
+      <th scope="col">Order number </th>
+      <th scope="col">Adress</th>
+      <th scope="col">Helper</th>
+      <th scope="col">Service type</th>
+      <th scope="col">Details</th>
+
+      <th scope="col">Status</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="col">201932542339 </th>
+      <th scope="col">Sur 20 306 2</th>
+      <th scope="col"> El sebas que no veo v':</th>
+      <th scope="col">Básico</th>
+      <th scope="col">
+        <a href="/details" target="_blank" onClick="window.open(this.href, this.target, 'width=screen.width,height=screen.height'); return false;">
+          <button type="button" class="btn btn-link-dark" ><span class="fa fa-folder-open"></span>
+          </button>
+        </a>
+      </th>
+      <th scope="col">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-outline-success"disabled><span class="fa fa-check"></span></button>
+          <button type="button" class="btn btn-outline-danger"disabled><span class="fa fa-times"> </span></button>
+        </div>
+      </th>
+
+    </tr>
+  </tbody>
+</table>
+
+        <h1 class="display-4 text-center" id="texto">Make a query </h1>
+
+  </div>
+  <script type="text/javascript">
+    function addTable(){
+      var fecha = new Date()
+      //document.getElementById('texto').innerHTML  =   fecha.getFullYear().toString() + fecha.getMonth().toString() + fecha.getDate().toString() + fecha.getHours().toString() + fecha.getMinutes().toString() + fecha.getSeconds().toString()
+      var a = document.getElementById("datepicker").value;
+      console.log(a);
+      var parsefecha = Date.parse(a)
+      var fecha = new Date(parsefecha)
+      console.log(fecha);
+      var dia = fecha.getDate()
+      var mes = fecha.getMonth()
+      var annio = fecha.getFullYear()
+      var patron = String(annio)+String(mes )+String(dia)
+      document.getElementById("texto").innerHTML = patron ;
+      prueba();
+    }
+
+    function prueba(){
+      var ffolio
+      var fecha = new Date()
+      var prefolio = fecha.getFullYear().toString() + fecha.getMonth().toString() + fecha.getDate ().toString() + fecha.getHours().toString() + fecha.getMinutes().toString() + fecha.getSeconds().toString()
+      ffolio = prefolio.replace(/\D/g);
+      console.log(ffolio);
+    }
+    function default(){
+      var fecha = new Date()
+      document.getElementById("texto").innerHTML = fecha ;
+
+    }
+  </script>
+
+    </body>
+  </html>
