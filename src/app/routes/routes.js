@@ -22,6 +22,11 @@ module.exports = (app, passport) => {
       message: req.flash('signupMessage')
     });
   });
+  app.get('/error', isLoggedIn, (req, res) =>{
+    res.render('error', {
+      user: req.user
+    });
+  });
 
 
   app.post('/signup', passport.authenticate('local-signup', {

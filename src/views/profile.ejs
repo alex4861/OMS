@@ -3,12 +3,16 @@
     <head>
       <meta charset="utf-8">
       <title>Index</title>
+
       <% include partials/head %>
-      <% include partials/nav %>
+      <script type="text/javascript" src="js/date.js"></script>
 
     </head>
     <body>
+      <% include partials/nav %>
 
+
+      <!---Inicia el div de consulta de fechas---->
       <section>
         <div class="card mx-5 my-5 bg-light ">
           <form class="form-inline d-flex " id="datos">
@@ -20,13 +24,13 @@
 
               </div>
               <div class=" input-group mb-3 5 ml-5 mt-5 ">
-                <a class="btn btn-outline-info justify-content-end" onclick="Javascript:addTable()"> buscar </a>
+                <a class="btn btn-outline-info justify-content-end" onclick="create()"> buscar </a>
               </div>
             </form>
           </div>
-
-
       </section>
+      <!---Finaliza el div de consulta de fechas---->
+
       <div class="jumbotron ml-5 mr-5">
         <table class="table table-striped">
   <thead class="table-info table-hover">
@@ -67,35 +71,13 @@
         <h1 class="display-4 text-center" id="texto">Make a query </h1>
 
   </div>
+  <script type="text/javascript" src="css/pushbar.js"></script>
   <script type="text/javascript">
-    function addTable(){
-      var fecha = new Date()
-      //document.getElementById('texto').innerHTML  =   fecha.getFullYear().toString() + fecha.getMonth().toString() + fecha.getDate().toString() + fecha.getHours().toString() + fecha.getMinutes().toString() + fecha.getSeconds().toString()
-      var a = document.getElementById("datepicker").value;
-      console.log(a);
-      var parsefecha = Date.parse(a)
-      var fecha = new Date(parsefecha)
-      console.log(fecha);
-      var dia = fecha.getDate()
-      var mes = fecha.getMonth()
-      var annio = fecha.getFullYear()
-      var patron = String(annio)+String(mes )+String(dia)
-      document.getElementById("texto").innerHTML = patron ;
-      prueba();
-    }
+  	var pushbar = new Pushbar({
+  		blur:true,
+  		overlay:true,
+  	});
 
-    function prueba(){
-      var ffolio
-      var fecha = new Date()
-      var prefolio = fecha.getFullYear().toString() + fecha.getMonth().toString() + fecha.getDate ().toString() + fecha.getHours().toString() + fecha.getMinutes().toString() + fecha.getSeconds().toString()
-      ffolio = prefolio.replace(/\D/g);
-      console.log(ffolio);
-    }
-    function default(){
-      var fecha = new Date()
-      document.getElementById("texto").innerHTML = fecha ;
-
-    }
   </script>
 
     </body>

@@ -8,11 +8,22 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const cors = require('cors');
+const request = require('request');
+
 
 const { url } = require('./config/database');
 
 mongoose.connect(url, {
   useNewUrlParser: true
+})
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
 })
 
 
@@ -25,6 +36,7 @@ app.set('view engine', 'ejs');
 // middlewares
 
 app.use(morgan('dev'));
+app.use(cors())
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
@@ -38,10 +50,10 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use(flash());
-
+app.options('*',cors())
 // routes
 
-require('./app/routes/routes')(app, passport);
+require('./app/routes/routes')(app, passport,cors());
 
 // static files
 

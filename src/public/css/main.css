@@ -1,3 +1,12 @@
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing:border-box;
+}
+a {
+	text-decoration: none;
+}
 .login{
   background: #56ab2f;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #04BAB5, #00ffff);  /* Chrome 10-25, Safari 5.1-6 */
@@ -19,4 +28,25 @@
   background: #000428;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.pushbar{
+	background:#04BAB5;
+  color: #fff;
+  padding: 20px
+}
+.pushbar-menu a {
+  display: block;
+  color: #fff;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(112, 112, 112, .60);
+  font-weight: 500;
+  font-size: 16px;
+  transition: .3s ease color;
+}
+.pushbar-menu a:hover{
+  color: #fff;
+}
+.pushbar .btn-cerrar{
+  text-align: right;
+
 }
