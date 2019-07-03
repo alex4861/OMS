@@ -22,7 +22,7 @@ module.exports = (app, passport) => {
       message: req.flash('signupMessage')
     });
   });
-  app.get('/error', isLoggedIn, (req, res) =>{
+  app.get('/error', (req, res) =>{
     res.render('error', {
       user: req.user
     });
@@ -35,7 +35,7 @@ module.exports = (app, passport) => {
     failureFlash: true
   }));
 
-  app.get('/profile', isLoggedIn, (req, res) =>{
+  app.get('/profile', (req, res) =>{
     res.render('profile', {
       user: req.user
     });
