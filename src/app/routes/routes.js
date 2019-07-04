@@ -1,4 +1,4 @@
-module.exports = (app, passport) => {
+module.exports = (app, passport, cors) => {
   app.get('/', (req, res) =>{
     res.render('index');
   })
@@ -22,7 +22,10 @@ module.exports = (app, passport) => {
       message: req.flash('signupMessage')
     });
   });
-  app.get('/error', (req, res) =>{
+  app.options('*', cors)
+  app.get('/error', (req, res, cors) =>{
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.render('error', {
       user: req.user
     });
@@ -53,7 +56,7 @@ module.exports = (app, passport) => {
     return res.redirect('/');
   }
 
-  app.get('/details', isLoggedIn, (req, res) =>{
+  app.get('/details', (req, res) =>{
     res.render('details', {
       message: req.flash('signupMessage')
     });

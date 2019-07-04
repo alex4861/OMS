@@ -53,7 +53,7 @@ app.use(flash());
 app.options('*',cors())
 // routes
 
-require('./app/routes/routes')(app, passport,cors());
+require('./app/routes/routes')(app, passport,cors);
 
 // static files
 
