@@ -1,10 +1,16 @@
-<!DOCTYPE html>
+0<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <% include partials/head %>
 
     <meta charset="utf-8">
     <title>Details</title>
+    <link href="https://unpkg.com/bootstrap-table@1.15.2/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/bootstrap-table@1.15.2/dist/bootstrap-table.min.js"></script>
+
+    <script type="text/javascript" src="js/details.js"></script>
+
     <script type="text/javascript">
        window.onbeforeunload = function (e) {
     var e = e || window.event;
@@ -27,35 +33,11 @@
   </section>
 
     <div class="jumbotron ml-5 mr-5">
-      <table class="table">
+      <table class="table" id="tabla" data-toggle="tabla">
         <thead>
-          <tr >
-            <th scope="row" class="align-middle"> Adress</th>
-          </tr>
-          <tr>
-            <th scope="row"> Helper</th>
-          </tr>
-          <tr>
-            <th scope="row"> Service Type</th>
-          </tr>
-          <tr>
-            <th scope="row"> Status</th>
-          </tr>
-          <tr>
-            <th scope="row"> Costo total</th>
-          </tr>
-          <tr>
-            <th scope="row"> Adicionales</th>
-          </tr>
-          <tr>
-            <th scope="row"> Fecha y hora</th>
-          </tr>
-          <tr>
-            <th scope="row"> </th>
-          </tr>
-          <tr>
-            <th scope="row"> <a href = "https://www.google.com" >Correo o numero para pago </a></th>
-          </tr>
+          <tr ><th scope="col" data-field="uno">uno</th></tr>
+          <tr><th>dos</th></tr>
+
         </thead>
       </table>
     </div>
@@ -69,6 +51,8 @@
       window.close()
     }
 </script>
-
+<script>
+  getReporte()
+</script>
   </body>
 </html>

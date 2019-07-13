@@ -43,6 +43,9 @@ module.exports = (app, passport, cors) => {
       user: req.user
     });
   });
+  app.get('/facturacion', (req, res) =>{
+    res.render('facturacion');
+  });
 
   app.get('/logout', (req, res) =>{
     req.logout();
