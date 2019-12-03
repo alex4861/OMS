@@ -1,21 +1,17 @@
 
 function create(){
   var fecha = new Date()
-  //document.getElementById('texto').innerHTML  =   fecha.getFullYear().toString() + fecha.getMonth().toString() + fecha.getDate().toString() + fecha.getHours().toString() + fecha.getMinutes().toString() + fecha.getSeconds().toString()
   var a = document.getElementById("datepicker").value;
-  console.log(a);
   var parsefecha = Date.parse(a)
   var fecha = new Date(parsefecha)
   console.log(fecha);
   var dia = fecha.getDate()
   var mes = fecha.getMonth()
   var annio = fecha.getFullYear()
-  var patron = String(annio)+String(mes )+String(dia)
+  var patron = String(annio)+String(mes)+String(dia)
   document.getElementById("texto").innerHTML = patron ;
-  console.log(patron);
+  $("#table").bootstrapTable('showLoading')
   var requisito = {solicitud:patron}
-  console.log(requisito);
-
   var url = "https://us-central1-azzheztiaoms.cloudfunctions.net/obtenerEncabezado";
   fetch(url,{
     method: "POST",
@@ -29,8 +25,6 @@ function create(){
        return response.json().then(function(response){
          return response
        }).catch(function(){
-         console.log("sin respuesta");
-         alert("sin respuesta")
        })
    }).then(function(respuesta){
 
@@ -81,7 +75,8 @@ function create(){
  });
  }
  function consultarReporte(folio, consulta) {
-
+   var a = $(window).width()
+   console.log(a);
    var requisito = {
      solicitud:consulta,
      folio: folio
@@ -100,8 +95,6 @@ function create(){
         return response.json().then(function(response){
           return response
         }).catch(function(){
-          console.log("sin respuesta");
-          alert("sin respuesta")
         })
     }).then(function(respuesta){
       console.log(respuesta);
@@ -112,17 +105,19 @@ function create(){
         colonia: domicilio["1"],
         alcaldia: domicilio["2"],
         cp: domicilio["3"],
-        referencias: domicilio["4"]
+        referencias: domicilio["4"],
+        edit: '<i class="fas fa-edit"></i>'
       })
       var fechas= []
       fechas.push({
         fecha: respuesta["datosrecibo"]["hora"],
         hora:respuesta["historial"]["fecha"],
-        uid:respuesta["uid"]
+        uid:respuesta["uid"],
+        edit: '<i class="fas fa-edit"></i>'
       })
       console.log(datos);
-      var uno = funcionprueba()
       $("#newModal").on('show.bs.modal', function () {
+
         $('#prueba').bootstrapTable('refreshOptions',{data: datos})
         $('#fechas').bootstrapTable('refreshOptions',{data: fechas})
 
@@ -157,8 +152,9 @@ function create(){
    console.log(patron);
    var requisito = {apartado:b,
    solicitud:patron}
-
-
+   //Se muestra el mensaje de cargando
+   $("#table").bootstrapTable('showLoading')
+   //pasa a otra cosa
    var url = "https://us-central1-azzheztiaerrorreports.cloudfunctions.net/Reportes";
    fetch(url,{
      method: "POST",
@@ -172,8 +168,6 @@ function create(){
         return response.json().then(function(response){
           return response
         }).catch(function(){
-          console.log("sin respuesta");
-          alert("sin respuesta")
         })
     }).then(function(respuesta){
 
@@ -198,8 +192,7 @@ function create(){
         })
 
       }
-        $('#table').bootstrapTable('refreshOptions',{
-          data: casoss           })
+        $('#table').bootstrapTable('refreshOptions',{data: casoss})
     }).catch(function(error){
 
   });
@@ -207,12 +200,6 @@ function create(){
 
 
  }
-
-  function funcionprueba(){
-    var datos=[]
-    datos.push({
-      uno:"Uno",
-      dos:"dos"
-    })
-    return datos
-  }
+ function editAdress(datos){
+   console.log(datos);
+ }

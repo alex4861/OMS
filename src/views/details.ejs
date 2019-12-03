@@ -1,4 +1,4 @@
-0<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <% include partials/head %>
@@ -11,46 +11,247 @@
 
     <script type="text/javascript" src="js/details.js"></script>
 
-    <script type="text/javascript">
-       window.onbeforeunload = function (e) {
-    var e = e || window.event;
-       if (e) {
-         e.returnValue = 'Se perderan todos los datos que no hayas guardado';
-       }
-}
-
-</script>
   </head>
   <body >
     <section>
 
-      <div class=" mx-2 my-2  shadow-lg text-center border border-light bg-light rounded-lg mb-5">
-      <div class="mx-5 my-5">
+      <div class=" mx-2  shadow-lg text-center border border-light bg-light rounded-lg mb-5">
         <p><h1>Order number	</h1>
         <h3>2019510235350</h3>
-      </div>
     </div>
   </section>
 
     <div class="jumbotron ml-5 mr-5">
-      <table class="table" id="tabla" data-toggle="tabla">
-        <thead>
-          <tr ><th scope="col" data-field="uno">uno</th></tr>
-          <tr><th>dos</th></tr>
+      <div class="row d-flex justify-Content-between">
+        <div class="col"  style="text-align: center;">
+          ID de servicio
+        </div>
+        <div class="col" style="text-align: center;">
+          2019510235350
+        </div>
+      </div>
+       <hr class="my-4">
 
-        </thead>
-      </table>
-    </div>
-    <div class="fixed-bottom mb-5 text-center">
-      <button type="button" name="button" class="btn-outline-success btn-lg mr-5">Save Changes</button>
-      <button type="button" name="button" class="btn-outline-danger btn-lg ml-5" onClick="Javascript:alerta();">Discard Changes</button>
+      <div class="row d-flex justify-Content-between">
+        <div class="col"  style="text-align: center;">
+          Nombre de cliente
+        </div>
+        <div class="col" style="text-align: center;">
+          Juan Flores
+        </div>
+      </div>
+       <hr class="my-4">
+
+      <div class="row d-flex justify-Content-between">
+        <div class="col"  style="text-align: center;">
+          Tipo de servicio
+        </div>
+        <div class="col" style="text-align: center;">
+          Basico
+        </div>
+      </div>
+       <hr class="my-4">
+
+      <div class="row d-flex justify-Content-between">
+        <div class="col"  style="text-align: center;">
+          Numero de cliente
+        </div>
+        <div class="col" style="text-align: center;">
+          +52 55 3366 5588
+        </div>
+      </div>
+      <hr class="my-4">
+
+      <div class="row d-flex justify-Content-between">
+        <div class="col"  style="text-align: center;">
+          Fecha
+        </div>
+        <div class="col" style="text-align: center;">
+          05-11-2019
+        </div>
+      </div>
+      <hr class="my-4">
+
+
+      <div class="row d-flex justify-Content-between">
+        <div class="col"  style="text-align: center;">
+          Hora
+        </div>
+        <div class="col" style="text-align: center;">
+          09:00 AM
+        </div>
+      </div>
+      <hr class="my-4">
+
+      <div class="row d-flex justify-Content-between">
+        <div class="col"  style="text-align: center;">
+          Direccion
+        </div>
+        <div class="col" style="text-align: center;">
+          <button type="button" name="button" data-toggle="modal" data-target="#newModal">Ver direccion</button>
+        </div>
+      </div>
+      <hr class="my-4">
+
+      <div class="row d-flex justify-Content-between">
+        <div class="col"  style="text-align: center;">
+          Detalles de servicio
+        </div>
+        <div class="col" style="text-align: center;">
+          <button type="button" name="button" data-toggle="modal" data-target="#detail">Ver Detalles</button>
+        </div>
+      </div>
+      <hr class="my-4">
 
     </div>
-    <script type="text/javascript">
-    function alerta(){
-      window.close()
-    }
-</script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row d-flex justify-Content-between"  style="text-align: center;">
+              <div class="col">
+                Calle
+              </div>
+              <div class="col">
+                José Martí 179, Edificio A-404
+              </div>
+            </div>
+            <div class="row d-flex justify-Content-between"  style="text-align: center;">
+              <div class="col">
+                Colonia
+              </div>
+              <div class="col">
+                Escandón
+              </div>
+            </div>
+            <div class="row d-flex justify-Content-between"  style="text-align: center;">
+              <div class="col">
+                Alcaldía
+              </div>
+              <div class="col">
+                Miguel Hidalgo
+              </div>
+            </div>
+            <div class="row d-flex justify-Content-between"  style="text-align: center;">
+              <div class="col">
+                Hora
+              </div>
+              <div class="col">
+                09:00 AM
+              </div>
+            </div>
+            <div class="row d-flex justify-Content-between"  style="text-align: center;">
+              <div class="col">
+                Código postal
+              </div>
+              <div class="col">
+                11800
+              </div>
+            </div>
+
+            <div class="row d-flex justify-Content-between"  style="text-align: center;">
+              <div class="col">
+                Referencias
+              </div>
+              <div class="col">
+                minería y agricultura
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="detail" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row d-flex justify-Content-between" style="text-align: center;">
+              <div class="col">
+                Habitaciones
+              </div>
+              <div class="col">
+                2
+              </div>
+            </div>
+            <div class="row d-flex justify-Content-between" style="text-align: center;">
+              <div class="col">
+                Baños
+              </div>
+              <div class="col">
+                1
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center" style="text-align: center;">
+              <div class="col">
+                Medios Baños
+              </div>
+              <div class="col">
+                0
+              </div>
+            </div>
+            <div class="row d-flex justify-Content-between" style="text-align: center;">
+              <div class="col">
+                Aspirado
+              </div>
+              <div class="col">
+                sí
+              </div>
+            </div>
+            <div class="row d-flex justify-Content-between" style="text-align: center;">
+              <div class="col">
+                Baldosas
+              </div>
+              <div class="col">
+                Sí
+              </div>
+            </div>
+            <div class="row d-flex justify-Content-between" style="text-align: center;">
+              <div class="col">
+                Canceles
+              </div>
+              <div class="col">
+                Sí
+              </div>
+            </div>
+            <div class="row d-flex justify-Content-between" style="text-align: center;">
+              <div class="col">
+                Mascotas
+              </div>
+              <div class="col">
+                No
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
 <script>
   getReporte()
 </script>

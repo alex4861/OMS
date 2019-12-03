@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 const morgan = require('morgan');
@@ -14,9 +13,7 @@ const request = require('request');
 
 const { url } = require('./config/database');
 
-mongoose.connect(url, {
-  useNewUrlParser: true
-})
+
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
